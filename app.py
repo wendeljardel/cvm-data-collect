@@ -1,5 +1,6 @@
 from collect.data_collect import Collect
 from datetime import datetime
+import os
 
 
 
@@ -26,6 +27,8 @@ if __name__ == '__main__':
         fii_collect = Collect(url,save_path,directory)
         fii_collect.download_files()
         fii_collect.unzip_files()
+        os.remove(save_path)
+
     
     
 
