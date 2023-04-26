@@ -76,9 +76,15 @@ if __name__ == '__main__':
     #     os.remove(save_path)
 
     # FII/FIDC FUNDOS ESTRUTURADOS: MEDIDAS
+    years_months = Utils.time_structured_funds(start_year=2017)
+    for i in years_months:
+        save_path = f"collect/files/measurements/measurements_{i}.csv"
+        directory = f"collect/files/measurements/"
+        url = f"https://dados.cvm.gov.br/dados/FIE/MEDIDAS/DADOS/medidas_mes_fie_{i}.csv"
+        cra_collect = Collect(url,save_path,directory)
+        cra_collect.download_files()
+        
 
-    # print(f"{datetime.now().year}{str(datetime.now().month - 1).zfill(2)}")
-    Utils.time_structured_funds(start_year=2017)
     
 
     

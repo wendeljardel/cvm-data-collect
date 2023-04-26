@@ -20,7 +20,7 @@ class Utils:
                 for j in months:
                      months_years.append(f"{i}{str(j).zfill(2)}")
     
-        print(months_years)
+        return months_years
 
 
 
