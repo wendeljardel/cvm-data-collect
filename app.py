@@ -1,4 +1,5 @@
 from collect.data_collect import Collect
+from utils.date_utils import Utils
 from datetime import datetime
 import os
 
@@ -8,6 +9,7 @@ import os
 CRI_YEARS = [x for x in range(2019,datetime.now().year + 1)]
 FII_YEARS = [x for x in range(2018,datetime.now().year + 1)]
 FII_YEARLY = [x for x in range(2018,datetime.now().year - 1)]
+
 
 if __name__ == '__main__':    
     #CRI
@@ -57,13 +59,26 @@ if __name__ == '__main__':
     # fii_collect.download_files()
     
     #OFERTAS DE DISTRIBUIÇÃO
-    save_path = f"collect/files/distribution_offer/distribution_offer.csv"
-    directory = f"collect/files/distribution_offer/"
-    url = "https://dados.cvm.gov.br/dados/OFERTA/DISTRIB/DADOS/oferta_distribuicao.csv"
-    fii_collect = Collect(url,save_path,directory)
-    fii_collect.download_files()
-    
+    # save_path = f"collect/files/distribution_offer/distribution_offer.csv"
+    # directory = f"collect/files/distribution_offer/"
+    # url = "https://dados.cvm.gov.br/dados/OFERTA/DISTRIB/DADOS/oferta_distribuicao.csv"
+    # fii_collect = Collect(url,save_path,directory)
+    # fii_collect.download_files()
 
+    # #CRA
+    # for i in CRI_YEARS:
+    #     save_path = f"collect/files/cra_{i}.zip"
+    #     directory = f"collect/files/cra/{i}"
+    #     url = f"https://dados.cvm.gov.br/dados/SECURIT/DOC/INF_MENSAL_CRA/DADOS/inf_mensal_cra_{i}.zip"
+    #     cra_collect = Collect(url,save_path,directory)
+    #     cra_collect.download_files()
+    #     cra_collect.unzip_files()
+    #     os.remove(save_path)
+
+    # FII/FIDC FUNDOS ESTRUTURADOS: MEDIDAS
+
+    # print(f"{datetime.now().year}{str(datetime.now().month - 1).zfill(2)}")
+    Utils.time_structured_funds(start_year=2017)
     
 
     
